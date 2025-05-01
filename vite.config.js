@@ -8,7 +8,7 @@ export default defineConfig({
     tailwindcss(),
     react(),
   ],
-  // this is only work on devlopment not on production
+  // this is only work on development not on production
   // server: {
   //   proxy: {
   //     '/api/': 'https://cloud-dream-ecommerce-backend-production.up.railway.app/',
