@@ -74,7 +74,7 @@ export default function Searchbar({
       </div>
 
       {/* Right side (Notifications, User, Menu) */}
-      <div className="flex order-2 md:order-3 items-center gap-4 sm:gap-3">
+      <div className="flex order-2 md:order-3 items-center gap-2 sm:gap-3">
         <Link
           to="/cart"
           onClick={() => setShowSidebarMenu(false)}
@@ -165,7 +165,7 @@ export default function Searchbar({
             )}
           </div>
         ) : (
-          <div className="flex items-center gap-1 sm:gap-2">
+          <div className="flex items-center gap-0.5 sm:gap-2">
             <button
               onClick={() => {
                 navigate("/login");
