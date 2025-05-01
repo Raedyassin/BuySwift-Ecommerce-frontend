@@ -10,7 +10,7 @@ import { motion } from "motion/react";
 import EmptyCart from "../../components/EmptyCart";
 import { useEffect } from "react";
 import QuantitySelector from "../products/QuantitySelector";
-
+import {prefixImageUrl} from '../../utils/constance'
 export default function Cart() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -88,7 +88,7 @@ export default function Cart() {
                       <img
                         src={
                           item.img
-                            ? `/uploads/${
+                            ? `${prefixImageUrl}${
                                 item?.img?.split("/").pop() ||
                                 "defaultImage.png"
                               }`

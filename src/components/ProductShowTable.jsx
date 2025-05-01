@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { MdKeyboardArrowUp, MdKeyboardArrowDown } from "react-icons/md";
 import { FaSitemap } from "react-icons/fa";
+import { prefixImageUrl } from "../utils/constance";
 
 export default function ProductShowTable({ orderItems, px, showColor, className }) {
   const [showDetails, setShowDetails] = useState(true);
@@ -72,10 +73,10 @@ export default function ProductShowTable({ orderItems, px, showColor, className 
                     <img
                       src={
                         item?.product?.img
-                          ? `/uploads/${item.product.img.split("/").pop()}`
+                          ? `${prefixImageUrl}${item.product.img.split("/").pop()}`
                           : item.img
-                          ? `/uploads/${item.img.split("/").pop()}`
-                          : `/uploads/${item.image.split("/").pop()}`
+                          ? `${prefixImageUrl}${item.img.split("/").pop()}`
+                          : `${prefixImageUrl}${item.image.split("/").pop()}`
                       }
                       alt={item?.product?.name || item.name}
                       className=" max-h-full max-w-full rounded-lg"

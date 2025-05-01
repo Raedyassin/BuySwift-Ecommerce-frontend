@@ -6,6 +6,7 @@ import HeartIcon from "./HeartIcon";
 import Ratings from "./Ratings";
 import { numberReviewsHandler } from "../../utils/numberReviews";
 import PriceDiscont from "./PriceDiscont";
+import { prefixImageUrl } from "../../utils/constance";
 export default function ProductCard({ product, sold }) {
   const dispatch = useDispatch();
   return (
@@ -25,7 +26,7 @@ export default function ProductCard({ product, sold }) {
               "
             >
               <img
-                src={"/uploads/" + product.img.split("/").pop()}
+                src={prefixImageUrl + product.img.split("/").pop()}
                 alt={product?.name}
                 className=" max-h-full max-w-full rounded-lg "
               />

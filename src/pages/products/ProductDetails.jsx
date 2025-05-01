@@ -27,6 +27,7 @@ import apiSlice from "../../redux/services/apiSlice";
 import PriceDiscont from "./PriceDiscont";
 import QuantitySelector from "./QuantitySelector";
 import ImageZoom from "./ImageZoom";
+import { prefixImageUrl } from "../../utils/constance";
 
 export default function ProductDetails() {
   const { id } = useParams();
@@ -220,7 +221,7 @@ export default function ProductDetails() {
               hover:scale-105 h-72 sm:h-96 lg:h-[28rem] "
               >
                 <ImageZoom
-                  src={`/uploads/${product?.data?.product?.img
+                  src={`${prefixImageUrl}${product?.data?.product?.img
                     .split("/")
                     .pop()}`}
                   name={product?.name}

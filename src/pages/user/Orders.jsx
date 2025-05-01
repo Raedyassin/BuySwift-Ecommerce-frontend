@@ -16,6 +16,7 @@ import Loader from "../../components/Loader";
 import PageLoader from "../../components/PageLoader";
 import OrderDetails from "../../components/OrderDetails";
 import { Link } from "react-router-dom";
+import {prefixImageUrl} from '../../utils/constance'
 export default function Orders() {
   const [page, setPage] = useState(1);
   const [selectedItem, setSelectedItem] = useState(0);
@@ -279,7 +280,7 @@ export default function Orders() {
                                   <div className="flex items-center justify-center w-full sm:w-24 sm:h-24 rounded-lg bg-white">
                                     <img
                                       className="max-w-full max-h-full rounded-lg"
-                                      src={`/uploads/${item.product.img
+                                      src={`${prefixImageUrl}${item.product.img
                                         .split("/")
                                         .pop()}`}
                                       onError={(e) =>

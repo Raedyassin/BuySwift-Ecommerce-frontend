@@ -7,7 +7,7 @@ import {
   useDeleteProductMutation,
 } from "../../redux/apis/productApiSlice";
 import { motion } from "motion/react";
-// import Message from "../../components/Message";
+import {prefixImageUrl} from '../../utils/constance'
 import AdminMenu from "./AdminMenu";
 import PageLoader from "../../components/PageLoader";
 import PageHeader from "../../components/PageHeader";
@@ -425,7 +425,7 @@ export default function UserList() {
                     </td>
                     <td className=" flex items-center p-4 min-w-60 ">
                       <img
-                        src={"/uploads/" + product.img.split("/").pop()}
+                        src={prefixImageUrl + product.img.split("/").pop()}
                         alt={product.name}
                         className="h-10 w-10 mr-3 block object-cover rounded-full"
                       />

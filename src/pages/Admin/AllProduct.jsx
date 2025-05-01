@@ -7,7 +7,7 @@ import PageHeader from "../../components/PageHeader";
 import AdminMenu from "./AdminMenu";
 import PageLoader from "../../components/PageLoader";
 import { useEffect, useRef, useState } from "react";
-
+import {prefixImageUrl} from '../../utils/constance'
 export default function AllProduct() {
   const [page, setPage] = useState(1);
   const {
@@ -79,7 +79,7 @@ export default function AllProduct() {
                   <div className="flex items-start gap-4">
                     <div className="w-24 h-24 rounded-lg flex justify-center items-center">
                       <img
-                        src={"/uploads/" + product.img.split("/").pop()}
+                        src={prefixImageUrl + product.img.split("/").pop()}
                         alt={product.name}
                         className=" max-h-full max-w-full rounded-lg "
                       />
@@ -92,8 +92,10 @@ export default function AllProduct() {
                         {moment(product.createdAt).format("MMM YYYY DD")}
                       </span>
                       <div>
-                        <h5 className="text-base font-bold text-gray-900 mb-1 
-                          line-clamp-2">
+                        <h5
+                          className="text-base font-bold text-gray-900 mb-1 
+                          line-clamp-2"
+                        >
                           {product.name}
                         </h5>
                         <p className="text-gray-600 text-xs line-clamp-2">

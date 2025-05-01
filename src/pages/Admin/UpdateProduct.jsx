@@ -11,6 +11,7 @@ import AdminMenu from "./AdminMenu";
 import { motion } from "motion/react";
 import PageLoader from "../../components/PageLoader";
 import ProductForm from "../../components/ProductForm";
+import {prefixImageUrl} from '../../utils/constance'
 export default function UpdateProduct() {
   const { id } = useParams();
   const [image, setImage] = useState("");
@@ -128,7 +129,7 @@ export default function UpdateProduct() {
                   src={
                     newImage !== image
                       ? URL.createObjectURL(newImage)
-                      : "/uploads/" + image.split("/").pop()
+                      : prefixImageUrl + image.split("/").pop()
                   }
                   alt={name}
                   className="max-h-48 rounded-lg  object-cover"
@@ -170,7 +171,6 @@ export default function UpdateProduct() {
               handleSubmit={handleSubmit}
               handleDelete={handleDelete}
             />
-
           </div>
         </div>
       </motion.div>

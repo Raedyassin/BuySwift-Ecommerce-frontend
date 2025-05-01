@@ -17,6 +17,7 @@ import {
   Legend,
   ArcElement,
 } from "chart.js";
+import {prefixImageUrl} from '../../utils/constance'
 import PageLoader from "../../components/PageLoader";
 import { useNavigate } from "react-router-dom";
 
@@ -238,7 +239,7 @@ export default function Dashboard() {
                     >
                       <div className="flex items-center space-x-2 sm:space-x-3">
                         <img
-                          src={"/uploads/" + product.img.split("/").pop()}
+                          src={prefixImageUrl + product.img.split("/").pop()}
                           alt={product.name}
                           className="w-8 h-8 sm:w-10 sm:h-10 rounded-full object-fill"
                         />
@@ -276,7 +277,7 @@ export default function Dashboard() {
                     >
                       <div className="flex items-center space-x-2 sm:space-x-3">
                         <img
-                          src={"/uploads/" + product.img.split("/").pop()}
+                          src={prefixImageUrl + product.img.split("/").pop()}
                           alt={product.name}
                           className="w-8 h-8 sm:w-10 sm:h-10 rounded-full object-fill"
                         />

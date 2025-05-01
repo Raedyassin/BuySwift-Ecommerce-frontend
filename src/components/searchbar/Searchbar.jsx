@@ -14,6 +14,7 @@ import {
 } from "react-icons/ai";
 import SelectedCounteSidebar from "../../pages/products/SelectedCounteSidebar";
 import { changeToRelative } from "../../redux/features/chagneSearchbarPosition";
+import {prefixImageUrl} from '../../utils/constance'
 export default function Searchbar({
   setShowSidebarMenu,
   setSearchName,
@@ -49,7 +50,9 @@ export default function Searchbar({
     <div
       // transition-all duration-300
       className={`flex items-center flex-wrap w-full justify-between gap-2 
-        px-4 py-2 sm:px-6  ${homeSearchbarEffect === "dark" ? "bg-gray-900" : ""} `}
+        px-4 py-2 sm:px-6  ${
+          homeSearchbarEffect === "dark" ? "bg-gray-900" : ""
+        } `}
     >
       {/* Left side (Logo) */}
       <div
@@ -114,8 +117,8 @@ export default function Searchbar({
               // src={userInfo?.img}
               src={
                 userInfo?.img
-                  ? "/uploads/user/" + userInfo?.img?.split("/").pop()
-                  : "../../../public/userImge.png"
+                  ? prefixImageUrl + "user/" + userInfo?.img?.split("/").pop()
+                  : prefixImageUrl + "user/"+"userImge.png"
               }
               alt={userInfo?.username}
               className="w-8 h-8 z-10 object-cover sm:w-10 sm:h-10 border-2 border-indigo-500 rounded-full cursor-pointer"
