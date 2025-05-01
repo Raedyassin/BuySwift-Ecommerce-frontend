@@ -5,7 +5,7 @@ import { addToCart } from "../../redux/features/cart/cartSlice";
 import HeartIcon from "./HeartIcon";
 import Ratings from "./Ratings";
 import { numberReviewsHandler } from "../../utils/numberReviews";
-import PriceDiscont from "./priceDiscont";
+import PriceDiscont from "./PriceDiscont";
 export default function ProductCard({ product, sold }) {
   const dispatch = useDispatch();
   return (

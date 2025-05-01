@@ -8,7 +8,7 @@ import { changeToRelative } from "../../redux/features/chagneSearchbarPosition";
 import { hiddenSearchResult } from "../../redux/features/searchResult";
 
 import { useDispatch } from "react-redux";
-import PriceDiscont from "../../pages/products/priceDiscont";
+import PriceDiscont from "../../pages/products/PriceDiscont";
 export default function SearchResults({ searchName }) {
   const { data: products, isFetching } = useGetSearchedProductsQuery({
     searchName,

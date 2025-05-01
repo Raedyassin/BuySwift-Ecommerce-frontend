@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import HeartIcon from "./HeartIcon";
-import PriceDiscont from "./priceDiscont";
+import PriceDiscont from "./PriceDiscont";
 export default function Product({ product }) {
   return (
     <div
