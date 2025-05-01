@@ -32,8 +32,8 @@ export default function HomeWelcome() {
 
   return (
     <div
-      className="bg-gray-900 min-h-[calc(100vh-64px)] 
-        lg:min-h-screen text-gray-300 flex flex-col items-center 
+      className="bg-gray-900 min-h-[calc(100vh-112px)] md:min-h-screen 
+      text-gray-300 flex flex-col items-center 
         px-4  sm:px-6 md:px-10 lg:pt-15 lg:px-30"
     >
       {/* Top */}
