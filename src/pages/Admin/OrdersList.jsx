@@ -116,7 +116,7 @@ export default function OrdersList() {
   }
   console.log(orders);
   return (
-    <div className={`mx-[3rem] pt-[2rem]  `}>
+    <div className={`mx-[1rem] sm:mx-[2rem] pt-[2rem]  `}>
       <motion.div
         initial={{ opacity: 0, y: -100 }}
         animate={{ opacity: 1, y: 0 }}
@@ -130,7 +130,7 @@ export default function OrdersList() {
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1 }}
       >
-        <div className="flex items-center mt-6 mb-3  flex-wrap justify-between">
+        <div className="flex text-sm sm:text-base items-center mt-6 mb-3  flex-wrap justify-between">
           <div
             className="flex items-center mt-2 order-2 lg:order-1 border-2 border-gray-100 rounded-2xl 
             p-1 focus-within:border-gray-200"
@@ -138,7 +138,7 @@ export default function OrdersList() {
             <CiFilter className=" text-gray-500 w-7 h-7  " />
             <select
               onChange={(e) => setFilterBy(e.target.value)}
-              className="w-[8rem] mr-3 p-2 focus:outline-none placeholder:italic rounded-xl "
+              className="w-[8rem]   mr-3 p-2 focus:outline-none placeholder:italic rounded-xl "
               defaultValue={""}
             >
               <option value="">All</option>
@@ -167,7 +167,7 @@ export default function OrdersList() {
                 onChange={(e) =>
                   setFilterSet({ ...filterSet, status: e.target.value })
                 }
-                className="w-[8rem] p-2 focus:outline-none placeholder:italic rounded-xl "
+                className="w-[8rem]  p-2 focus:outline-none placeholder:italic rounded-xl "
                 defaultValue={""}
               >
                 {/* ["pending", "delivered", 'ontheroute',"packed", "cancelled"] */}
@@ -184,7 +184,8 @@ export default function OrdersList() {
                 onChange={(e) =>
                   setFilterSet({ ...filterSet, payment: e.target.value })
                 }
-                className="w-[8rem] p-2 focus:outline-none placeholder:italic rounded-xl "
+                className="w-[8rem]  p-2 focus:outline-none placeholder:italic 
+                  rounded-xl "
                 defaultValue={""}
               >
                 <option value="">All</option>
@@ -327,7 +328,7 @@ export default function OrdersList() {
         transition={{ duration: 1 }}
         className="  mb-[1rem] pb-5   w-full overflow-x-auto  rounded shadow-[0px_2px_10px_rgba(0,0,0,0.1)]"
       >
-        <table className=" w-full ">
+        <table className=" w-full text-sm sm:text-base ">
           <thead>
             <tr>
               <th className="p-4 pl-6 text-start bg-[#FAFAFC] "> ID</th>
@@ -364,7 +365,7 @@ export default function OrdersList() {
                     key={order._id}
                     className={`${selectedOrder === order._id && "bg-sky-50"}`}
                   >
-                    <td className="min-w-60 p-4 pl-6 flex items-center gap-2 ">
+                    <td className="min-w-50 max-w-55 p-4 pl-6 flex items-center gap-2 ">
                       <input
                         type="checkbox"
                         checked={selectedOrder === order._id}
@@ -378,15 +379,15 @@ export default function OrdersList() {
                         {order._id}
                       </span>
                     </td>
-                    <td className="min-w-40 p-4">
+                    <td className="min-w-30 p-4">
                       {order.createdAt.substring(0, 10)}
                     </td>
                     <td className="min-w-50 p-4">{order.user?.username}</td>
-                    <td className="min-w-50 p-4">
+                    <td className="min-w-20 p-4">
                       <Status border={true} status={order.status} />
                     </td>
-                    <td className="min-w-50 p-4">${order.totalPrice}</td>
-                    <td className="min-w-40 min p-4">
+                    <td className="min-w-20 p-4">${order.totalPrice}</td>
+                    <td className="min-w-30 min p-4">
                       {order.isPaid ? (
                         <span className="text-green-300 font-semibold italic border-1 border-green-300 rounded-full px-3 py-1">
                           Paid

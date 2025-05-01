@@ -20,7 +20,7 @@ import {
 import {prefixImageUrl} from '../../utils/constance'
 import PageLoader from "../../components/PageLoader";
 import { useNavigate } from "react-router-dom";
-
+import Message from "../../components/Message";
 // Register Chart.js components
 ChartJS.register(
   CategoryScale,
@@ -44,9 +44,9 @@ export default function Dashboard() {
   if (isLoading) return <PageLoader height="h-screen" />;
   if (error)
     return (
-      <div className="p-4 text-red-500">
+      <Message variant="error">
         Error: {error?.data?.message || "Failed to load dashboard"}
-      </div>
+      </Message>
     );
 
   const {
@@ -230,7 +230,7 @@ export default function Dashboard() {
               <h2 className="text-base sm:text-lg lg:text-xl font-semibold text-gray-700 mb-4">
                 Top Sold Products
               </h2>
-              <ul className="space-y-1 grid grid-cols-2  pr-2">
+              <ul className="space-y-1 grid grid-cols-1 gap-1 md:grid-cols-2  pr-2">
                 {topSoldProducts?.length ? (
                   topSoldProducts.map((product) => (
                     <li
@@ -268,7 +268,7 @@ export default function Dashboard() {
               <h2 className="text-base sm:text-lg lg:text-xl font-semibold text-gray-700 mb-4">
                 Top Rated Products
               </h2>
-              <ul className="space-y-1 grid grid-cols-2  pr-2">
+              <ul className="space-y-1  grid grid-cols-1 md:grid-cols-2 gap-1  pr-2">
                 {topRatedProducts?.length ? (
                   topRatedProducts.map((product) => (
                     <li

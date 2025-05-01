@@ -140,7 +140,7 @@ export default function CategoryManagement() {
             animate={{ opacity: 1, y: 0 }}
             initial={{ opacity: 0, y: 50 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="mt-8 bg-white rounded-xl shadow-[0px_0px_10px_rgba(0,0,0,0.1)] overflow-hidden "
+            className="mt-8 text-sm sm:text-base bg-white rounded-xl shadow-[0px_0px_10px_rgba(0,0,0,0.1)] overflow-hidden "
           >
             {/* <div className="bg-gradient-to-r from-fuchsia-500 to-slate-200 text-white px-6 py-4"> */}
             <div className="  px-6 py-4">
@@ -180,9 +180,7 @@ export default function CategoryManagement() {
 
           {/* Modal for Update/Delete */}
           <Modale isOpen={modalVisible} isClose={() => setModalVisible(false)}>
-            <div
-              className="p-6 bg-white rounded-xl "
-            >
+            <div className="p-6 bg-white rounded-xl ">
               {/* <div className="bg-gradient-to-r from-teal-900 to-teal-700 text-white px-4 py-3 rounded-t-xl -mx-6 -mt-6 mb-4"> */}
               <div className=" px-4 py-3 rounded-t-xl -mx-6 -mt-6 mb-4">
                 <h2 className="text-lg font-medium  tracking-wider">

@@ -27,8 +27,8 @@ export default function UpdateProduct() {
   const navigate = useNavigate();
 
   const { data: product, isLoading } = useGetProductByIdQuery(id);
-  const [deleteProduct] = useDeleteProductMutation();
-  const [updateProduct] = useUpdateProductMutation();
+  const [deleteProduct, { isLoading: deleteLoading }] = useDeleteProductMutation();
+  const [updateProduct,{isLoading:updateLoading}] = useUpdateProductMutation();
   const { data: categories } = useGetAllCategoryQuery();
 
   useEffect(() => {
@@ -170,6 +170,8 @@ export default function UpdateProduct() {
               categories={categories?.data?.categories}
               handleSubmit={handleSubmit}
               handleDelete={handleDelete}
+              isLoadingDelete={deleteLoading}
+              isLoading={updateLoading}
             />
           </div>
         </div>

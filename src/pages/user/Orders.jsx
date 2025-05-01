@@ -295,7 +295,9 @@ export default function Orders() {
                                       onClick={() =>
                                         navigate(`/product/${item.product._id}`)
                                       }
-                                      className=" text-gray-700 font-bold hover:text-indigo-800 hover:underline cursor-pointer transition-colors duration-200"
+                                      className=" text-gray-700 font-bold hover:text-indigo-800 
+                                      hover:underline cursor-pointer transition-colors duration-200
+                                      line-clamp-3 md:line-clamp-2"
                                     >
                                       {item.product.name}
                                     </h1>
