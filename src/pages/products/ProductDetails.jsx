@@ -24,7 +24,7 @@ import PageLoader from "../../components/PageLoader";
 import DontHave from "../../components/DontHave";
 import Review from "./Review";
 import apiSlice from "../../redux/services/apiSlice";
-import PriceDiscont from "./priceDiscont";
+import PriceDiscont from "./PriceDiscont";
 import QuantitySelector from "./QuantitySelector";
 import ImageZoom from "./ImageZoom";
 
