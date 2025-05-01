@@ -186,7 +186,7 @@ export default function RelatedProducts({ relatedProducts }) {
               >
                 <h3 className="text-white text-sm sm:text-base md:text-lg font-semibold text-center">
                   {product.name.length > 15
-                    ? product.name.slice(0, 15) + "..."
+                    ? product.name?.slice(0, 15) + "..."
                     : product.name}
                 </h3>
                 <p className="text-white text-sm sm:text-base font-medium mt-1">

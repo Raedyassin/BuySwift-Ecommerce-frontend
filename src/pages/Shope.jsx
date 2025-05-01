@@ -239,8 +239,8 @@ export default function Shope() {
                   </h2>
                   <div className="space-y-3 px-4">
                     {uniqueBrands
-                      .slice(0, showMoreBrand ? uniqueBrands.length : 5)
-                      .map((brand, index) => (
+                      ?.slice(0, showMoreBrand ? uniqueBrands.length : 5)
+                      ?.map((brand, index) => (
                         <div key={index} className="flex items-center">
                           <input
                             type="radio"

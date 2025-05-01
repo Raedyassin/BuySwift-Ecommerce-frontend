@@ -120,15 +120,15 @@ export default function Home() {
               >
                 {isLoading
                   ? [...Array(6 + 6)]
-                      .slice(0, resizeWindow())
-                      .map((_, index) => (
+                      ?.slice(0, resizeWindow())
+                      ?.map((_, index) => (
                         <div key={index}>
                           <ProductLoader />
                         </div>
                         ))
                   : products.product
-                      .slice(0, resizeWindow())
-                      .map((product, i) => (
+                      ?.slice(0, resizeWindow())
+                      ?.map((product, i) => (
                         <motion.div
                           // className="flex justify-center items-center"
                           key={product._id}
