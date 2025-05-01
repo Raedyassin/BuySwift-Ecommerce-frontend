@@ -237,6 +237,7 @@ export default function Shope() {
                   >
                     Filter by Brands
                   </h2>
+                  
                   <div className="space-y-3 px-4">
                     {uniqueBrands
                       ?.slice(0, showMoreBrand ? uniqueBrands.length : 5)

@@ -8,13 +8,13 @@ export default defineConfig({
     tailwindcss(),
     react(),
   ],
-  server: {
-    proxy: {
-      '/api/': 'https://cloud-dream-ecommerce-backend-production.up.railway.app/',
-      "/uploads/": "https://cloud-dream-ecommerce-backend-production.up.railway.app/", 
-      changeOrigin: true,
-      secure: true,
-    },
-  }
-
+  // this is only work on devlopment not on production
+  // server: {
+  //   proxy: {
+  //     '/api/': 'https://cloud-dream-ecommerce-backend-production.up.railway.app/',
+  //     "/uploads/": "https://cloud-dream-ecommerce-backend-production.up.railway.app/", 
+  //     changeOrigin: true,
+  //     secure: true,
+  //   },
+  // }
 })
