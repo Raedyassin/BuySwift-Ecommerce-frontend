@@ -28,9 +28,9 @@ export default function CategoryManagement() {
   const [updatingName, setUpdatingName] = useState("");
   const [modalVisible, setModalVisible] = useState(false);
 
-  const [createCategory] = useCreateCategoryMutation();
-  const [updateCategory] = useUpdateCategoryMutation();
-  const [deleteCategory] = useDeleteCategoryMutation();
+  const [createCategory, { isLoading: isCreatingLoading }] = useCreateCategoryMutation();
+  const [updateCategory, { isLoading: isUpdatingLoading }] = useUpdateCategoryMutation();
+  const [deleteCategory, { isLoading: isDeletingLoading }] = useDeleteCategoryMutation();
 
     useEffect(() => {
       window.document.title = "Category Table";
@@ -130,6 +130,7 @@ export default function CategoryManagement() {
               value={name}
               setValue={setName}
               handleSubmit={handleCreateCategory}
+              isLoadingSubmit={isCreatingLoading}
               button="Create"
               className="space-y-4"
             />
@@ -181,11 +182,8 @@ export default function CategoryManagement() {
           {/* Modal for Update/Delete */}
           <Modale isOpen={modalVisible} isClose={() => setModalVisible(false)}>
             <div className="p-6 bg-white rounded-xl ">
-              {/* <div className="bg-gradient-to-r from-teal-900 to-teal-700 text-white px-4 py-3 rounded-t-xl -mx-6 -mt-6 mb-4"> */}
               <div className=" px-4 py-3 rounded-t-xl -mx-6 -mt-6 mb-4">
-                <h2 className="text-lg font-medium  tracking-wider">
-                  Edit Category
-                </h2>
+                <h2 className="text-lg font-medium  ">Edit Category</h2>
               </div>
               <CategoryForm
                 id="private"
@@ -193,6 +191,8 @@ export default function CategoryManagement() {
                 setValue={setUpdatingName}
                 handleDelete={deleteCategoryHandler}
                 handleSubmit={updateCategoryHandler}
+                isLoadingDelete={isDeletingLoading}
+                isLoadingSubmit={isUpdatingLoading}
                 button="Update"
                 className="space-y-4"
               />

@@ -38,7 +38,7 @@ export default function OrdersList() {
     isError,
     error,
   } = useGetAllOrdersByAdminQuery({ page, limit: 50, ...filterSet });
-  
+
   useEffect(() => {
     if (
       orders &&
@@ -59,7 +59,6 @@ export default function OrdersList() {
   const inputSearchHandler = (e) => {
     if (e.key === "Enter") searchByIdhandler();
   };
-
 
   const addPriceFilterHandler = () => {
     if (isNaN(startPrice) || isNaN(endPrice)) {
@@ -87,11 +86,10 @@ export default function OrdersList() {
     if (selectedOrder === userId) return setSelectedOrder(null);
     setSelectedOrder(userId);
   };
-      useEffect(() => {
-        window.document.title = "Orders Table";
-        window.scrollTo(0, 0);
-      }, []);
-
+  useEffect(() => {
+    window.document.title = "Orders Table";
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     if (error && error?.status < 500) {
@@ -365,19 +363,23 @@ export default function OrdersList() {
                     key={order._id}
                     className={`${selectedOrder === order._id && "bg-sky-50"}`}
                   >
-                    <td className="min-w-50 max-w-55 p-4 pl-6 flex items-center gap-2 ">
-                      <input
-                        type="checkbox"
-                        checked={selectedOrder === order._id}
-                        onChange={() => slectedUserHandler(order._id)}
-                        className="cursor-pointer w-4 h-4"
-                      />
-                      <span
-                        className=" cursor-pointer hover:text-indigo-500 hover:underline "
-                        onClick={() => navigate(`/order/${order._id}`)}
-                      >
-                        {order._id}
-                      </span>
+                    <td
+                      className="min-w-50 max-w-55 p-4 pl-6 "
+                    >
+                      <div className="flex items-center gap-2">
+                        <input
+                          type="checkbox"
+                          checked={selectedOrder === order._id}
+                          onChange={() => slectedUserHandler(order._id)}
+                          className="cursor-pointer w-4 h-4"
+                        />
+                        <span
+                          className=" cursor-pointer hover:text-indigo-500 hover:underline "
+                          onClick={() => navigate(`/order/${order._id}`)}
+                        >
+                          {order._id}
+                        </span>
+                      </div>
                     </td>
                     <td className="min-w-30 p-4">
                       {order.createdAt.substring(0, 10)}
@@ -387,7 +389,7 @@ export default function OrdersList() {
                       <Status border={true} status={order.status} />
                     </td>
                     <td className="min-w-20 p-4">${order.totalPrice}</td>
-                    <td className="min-w-30 min p-4">
+                    <td className="min-w-40 min p-4">
                       {order.isPaid ? (
                         <span className="text-green-300 font-semibold italic border-1 border-green-300 rounded-full px-3 py-1">
                           Paid

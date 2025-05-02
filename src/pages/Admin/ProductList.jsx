@@ -362,7 +362,10 @@ export default function UserList() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
       >
-        <div className="mb-[1rem] pb-5 mt-[1rem]  w-full overflow-x-auto  rounded shadow-[0px_2px_10px_rgba(0,0,0,0.1)]">
+        <div
+          className="mb-[1rem] pb-5 mt-[1rem]  w-full overflow-x-auto  
+          rounded shadow-[0px_2px_10px_rgba(0,0,0,0.1)]"
+        >
           <table className="w-full text-sm sm:text-base  ">
             <thead>
               <tr>
@@ -400,31 +403,33 @@ export default function UserList() {
                 {products?.data?.products?.map((product) => (
                   <tr
                     key={product._id}
-                    className={`${
+                    className={`hover:bg-sky-50 ${
                       selectedProduct === product._id && "bg-sky-50"
                     }`}
                   >
                     <td
-                      className={`flex items-center gap-2 justify-start  
-                          p-4 pl-6 min-w-40 `}
+                      className={`p-4 pl-6 min-w-40 h-full  `}
                     >
-                      <input
-                        type="checkbox"
-                        checked={selectedProduct === product._id}
-                        onChange={() => slectedUserHandler(product._id)}
-                        className="cursor-pointer w-4 h-4"
-                      />
-                      <Link
-                        to={`/product/${product._id}`}
-                        className="py-2 cursor-pointer  hover:text-indigo-600 hover:underline"
-                      >
-                        {product._id}
-                      </Link>
+                      <div className="flex items-center gap-2 h-full">
+                        <input
+                          type="checkbox"
+                          checked={selectedProduct === product._id}
+                          onChange={() => slectedUserHandler(product._id)}
+                          className="cursor-pointer w-4 h-4"
+                        />
+                        <Link
+                          to={`/product/${product._id}`}
+                          className="  cursor-pointer  hover:text-indigo-600 
+                          hover:underline"
+                        >
+                          {product._id}
+                        </Link>
+                      </div>
                     </td>
-                    <td className=" p-4   min-w-30 ">
+                    <td className=" p-4  not-only-of-type:  min-w-30 ">
                       {product.createdAt?.substring(0, 10)}
                     </td>
-                    <td className=" flex items-center p-4 min-w-60 ">
+                    <td className=" flex items-center   p-4 min-w-60 ">
                       <img
                         src={prefixImageUrl + product.img.split("/").pop()}
                         alt={product.name}
@@ -436,25 +441,25 @@ export default function UserList() {
                           : product.name}
                       </p>
                     </td>
-                    <td className=" p-4 min-w-30 ">
+                    <td className=" p-4 min-w-30  ">
                       {product.price?.toLocaleString("en-US", {
                         style: "currency",
                         currency: "USD",
                       })}
                     </td>
-                    <td className=" p-4 min-w-20 ">
+                    <td className=" p-4 min-w-20  ">
                       {product.rating.toFixed(2)}
                     </td>
-                    <td className=" p-2 pl-4 min-w-25 ">
+                    <td className=" p-2 pl-4 min-w-25  ">
                       {product.brand?.toUpperCase()}
                     </td>
-                    <td className=" p-2 pl-4 min-w-30 ">
+                    <td className=" p-2 pl-4 min-w-30  ">
                       {product?.category?.name}
                     </td>
-                    <td className=" p-2 min-w-30 ">
+                    <td className=" p-2 min-w-30  ">
                       {product?.quantity} Piece
                     </td>
-                    <td className=" min-w-20  p-4  ">
+                    <td className=" min-w-20  p-4   ">
                       <div className="flex  gap-2">
                         <button
                           onClick={() =>

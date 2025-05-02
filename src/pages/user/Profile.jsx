@@ -82,7 +82,10 @@ export default function Profile() {
 
   return (
     <>
-      <div className="container mx-auto p-4 pt-6 flex justify-center items-center min-h-screen">
+      <div
+        className="container mx-auto p-4 pt-6 flex justify-center 
+      items-center min-h-[calc(100vh-112px)] md:min-h-screen"
+      >
         <div
           className="w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl 
         shadow-lg py-6 px-4 sm:px-6 rounded-2xl flex flex-col items-center 

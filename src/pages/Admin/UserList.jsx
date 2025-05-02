@@ -359,9 +359,9 @@ export default function UserList() {
                       className={`${selectedUser === user._id && "bg-sky-50"}`}
                     >
                       <td
-                        className={`flex items-center gap-2 justify-start  
-                          p-4 pl-6 min-w-50 `}
+                        className={`p-4 pl-6 min-w-50 `}
                       >
+                        <div className="flex items-center gap-2">
                         <input
                           type="checkbox"
                           checked={selectedUser === user._id}
@@ -369,6 +369,7 @@ export default function UserList() {
                           className="cursor-pointer w-4 h-4"
                         />
                         <span className="py-2">{user._id}</span>
+                        </div>
                       </td>
                       <td className=" p-4  min-w-30  max-w-55 ">
                         {user.createdAt?.substring(0, 10)}

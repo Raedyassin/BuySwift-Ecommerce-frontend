@@ -18,8 +18,8 @@ export default function Modale({isOpen,isClose,children}) {
             className="fixed inset-0 bg-gray-200/50"
           ></div>
           <div
-            className="absolute top-[30%] right-[25%] bg-white
-            p-4 rounded-lg z-10 w-[50%] "
+            className="absolute top-[30%] lg:right-[25%] bg-white
+            p-4 rounded-lg z-10 w-[90%] lg:w-[50%] "
           >
             <button
               className="text-gray-500 font-semibold 
