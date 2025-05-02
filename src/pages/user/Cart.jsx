@@ -102,7 +102,7 @@ export default function Cart() {
                     <div className="flex-1 mt-4 sm:mt-0 ml-4">
                       <Link
                         to={`/product/${item._id}`}
-                        className="text-base sm:text-lg md:text-xl font-semibold 
+                        className="text-sm sm:text-base md:text-lg font-semibold 
                       text-black hover:underline hover:text-purple-600 transition-colors 
                       duration-300 sm:line-clamp-1 line-clamp-2 "
                       >
