@@ -96,7 +96,7 @@ export default function Orders() {
               style={{ zIndex: 1000 }}
               className={`fixed  left-0 lg:left-[70px] top-22 sm:top-24 
                 md:top-14  lg:top-0 w-[50%] bg-white  overflow-auto shadow-[0px_10px_10px_rgba(0,0,0,0.1)]
-                  h-[87.5%] sm:h-[86%] lg:h-screen lg:ml-2 lg:w-[15rem] lg:block  pb-20 lg:pb-0 ${
+                    sm:h-[95%] lg:h-screen lg:ml-2 lg:w-[15rem] lg:block  pb-20 lg:pb-0 ${
                     openOrders ? "block" : "hidden"
                   }`}
             >
@@ -202,7 +202,7 @@ export default function Orders() {
                   <div className="flex justify-between items-center">
                     <div className="flex items-center gap-2">
                       <FaOrcid className="text-indigo-600" size={28} />
-                      <h1 className="text-xl sm:text-2xl font-bold text-gray-900">
+                      <h1 className="text-lg sm:text-2xl font-bold text-gray-900">
                         {data?.data?.orders[selectedItem]?._id}
                       </h1>
                     </div>
@@ -246,7 +246,7 @@ export default function Orders() {
                     </div>
 
                     {/* Order Items */}
-                    <div className="bg-white rounded-xl p-4 sm:p-6 py-1  shadow-[0px_0px_10px_rgba(0,0,0,0.1)]  transition-all duration-300 hover:shadow-[0px_0px_20px_rgba(0,0,0,0.1)]">
+                    <div className="bg-white rounded-xl p-4 sm:px-6 py-1  shadow-[0px_0px_10px_rgba(0,0,0,0.1)]  transition-all duration-300 hover:shadow-[0px_0px_20px_rgba(0,0,0,0.1)]">
                       <div className="flex items-center justify-between p-4 sm:p-6 border-b border-gray-100">
                         <div className="flex items-center gap-3">
                           <FaSitemap size={24} />

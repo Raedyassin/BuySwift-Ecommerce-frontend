@@ -332,7 +332,7 @@ export default function Sidebar({
                     to="/admin/allproductslist"
                     onClick={() => setShowSidebarMenu(false)}
                     className={`flex items-center gap-2 lg:px-4   py-2 lg:py-4 
-                      rounded my-[0.55rem]
+                      rounded my-[1.2rem] lg:my-[0.55rem]
                       hover:text-indigo-800
                       transition-transform transform hover:translate-x-2
                       ${
@@ -366,7 +366,7 @@ export default function Sidebar({
                     onClick={() => setShowSidebarMenu(false)}
                     className={`flex items-center gap-2 lg:px-4  py-2 lg:py-4  rounded  
                       transition-transform transform hover:translate-x-2
-                      hover:text-indigo-800 my-[0.55rem] ${
+                      hover:text-indigo-800 my-[1.2rem] lg:my-[0.55rem] ${
                         window.location.pathname === "/admin/createproduct"
                           ? "text-indigo-600"
                           : ""
@@ -382,7 +382,7 @@ export default function Sidebar({
                     onClick={() => setShowSidebarMenu(false)}
                     className={`flex items-center gap-2 lg:px-4  py-2 lg:py-4  rounded   
                       transition-transform transform hover:translate-x-2
-                      hover:text-indigo-800 my-[0.55rem] ${
+                      hover:text-indigo-800 my-[1.2rem] lg:my-[0.55rem] ${
                         window.location.pathname === "/admin/productlist"
                           ? "text-indigo-600"
                           : ""
@@ -398,7 +398,7 @@ export default function Sidebar({
                     onClick={() => setShowSidebarMenu(false)}
                     className={`flex items-center gap-2 lg:px-4  py-2 lg:py-4  rounded  
                       transition-transform transform hover:translate-x-2
-                      hover:text-indigo-800 my-[0.55rem] ${
+                      hover:text-indigo-800 my-[1.2rem] lg:my-[0.55rem] ${
                         window.location.pathname === "/admin/categorylist"
                           ? "text-indigo-600"
                           : ""
@@ -414,7 +414,7 @@ export default function Sidebar({
                     onClick={() => setShowSidebarMenu(false)}
                     className={`flex items-center gap-2 lg:px-4  py-2 lg:py-4 rounded  
                       transition-transform transform hover:translate-x-2
-                      hover:text-indigo-800 my-[0.55rem] ${
+                      hover:text-indigo-800 my-[1.2rem] lg:my-[0.55rem] ${
                         window.location.pathname === "/admin/orderlist"
                           ? "text-indigo-600"
                           : ""
@@ -430,7 +430,7 @@ export default function Sidebar({
                     onClick={() => setShowSidebarMenu(false)}
                     className={`flex items-center gap-2 lg:px-4  py-2 lg:py-4 rounded  
                       transition-transform transform hover:translate-x-2
-                      hover:text-indigo-800 my-[0.55rem] ${
+                      hover:text-indigo-800 my-[1.2rem] lg:my-[0.55rem] ${
                         window.location.pathname === "/admin/userlist"
                           ? "text-indigo-600"
                           : ""
