@@ -96,7 +96,7 @@ export default function Orders() {
               style={{ zIndex: 1000 }}
               className={`fixed  left-0 lg:left-[70px] top-22 sm:top-24 
                 md:top-14  lg:top-0 w-[50%] bg-white  overflow-auto shadow-[0px_10px_10px_rgba(0,0,0,0.1)]
-                    sm:h-[95%] lg:h-screen lg:ml-2 lg:w-[15rem] lg:block  pb-20 lg:pb-0 ${
+                    h-[95%] lg:h-screen lg:ml-2 lg:w-[15rem] lg:block  pb-20 lg:pb-0 ${
                     openOrders ? "block" : "hidden"
                   }`}
             >
