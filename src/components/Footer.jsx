@@ -57,7 +57,7 @@ export default function Footer() {
               {[
                 { name: "Home", to: "/" },
                 { name: "Shop", to: "/shop" },
-                { name: "Orders", to: "/orderslist" },
+                // { name: "Orders", to: "/orderslist" },
                 { name: "Favorite", to: "/favorite" },
                 // { name: "Cart", to: "/cart  " },
               ].map((link) => (
