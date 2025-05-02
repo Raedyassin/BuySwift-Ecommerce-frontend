@@ -7,6 +7,7 @@ import {
 import { toast } from "react-toastify";
 import Loader from "../../components/Loader";
 import { setCredientials } from "../../redux/features/auth/authSlice";
+import { prefixImageUrl } from "../../utils/constance";
 
 export default function Profile() {
   const [password, setPassword] = useState("");
@@ -110,11 +111,11 @@ export default function Profile() {
               relative"
               >
                 <img
-                  src={userInfo?.img || "../../../public/userImge.png"}
+                  src={prefixImageUrl+"user/"+ userInfo?.img?.split("/")?.pop() || prefixImageUrl+"user/userImge.png"}
                   alt={userInfo?.username}
                   className="w-full h-full object-cover rounded-full"
                   onError={(e) => {
-                    e.target.src = "../../../public/userImge.png";
+                    e.target.src = prefixImageUrl + "user/userImge.png";
                   }}
                 />
                 <div
