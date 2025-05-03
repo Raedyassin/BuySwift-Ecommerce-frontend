@@ -27,9 +27,10 @@ import Dashboard from "./pages/Admin/Dashboard";
 import PayPalWraper from "./components/PayPalWraper";
 import OrdersList from "./pages/Admin/OrdersList";
 import NotFound from "./pages/NotFound";
-
+import ErrorBoundary from "./components/ErrorBoundary";
 export default function App() {
   return (
+    <ErrorBoundary>
     <Provider store={store}>
       <PayPalWraper>
         <BrowserRouter>
@@ -71,6 +72,7 @@ export default function App() {
           {/* </AnimatePresence> */}
         </BrowserRouter>
       </PayPalWraper>
-    </Provider>
+      </Provider>
+    </ErrorBoundary>
   );
 }

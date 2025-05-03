@@ -61,7 +61,7 @@ export default function Searchbar({
       >
         <PiRainbowCloudFill className="text-3xl sm:text-4xl md:text-5xl font-bold group-hover:text-indigo-700" />
         <span className="text-xl sm:text-2xl font-bold italic group-hover:text-indigo-700">
-          Cloud Dream
+          Dream Market
         </span>
       </div>
 
@@ -118,7 +118,7 @@ export default function Searchbar({
               src={
                 userInfo?.img
                   ? prefixImageUrl + "user/" + userInfo?.img?.split("/").pop()
-                  : prefixImageUrl + "user/"+"userImge.png"
+                  : prefixImageUrl + "user/" + "userImge.png"
               }
               alt={userInfo?.username}
               className="w-8 h-8 z-10 object-cover sm:w-10 sm:h-10 border-2 border-indigo-500 rounded-full cursor-pointer"

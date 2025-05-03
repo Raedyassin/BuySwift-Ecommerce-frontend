@@ -9,14 +9,12 @@ const ORDER_URL = "/api/order";
 const PAYMENT_URL = '/api/payment'
 const DASHBOARD_URL = '/api/dashboard'
 
-
 //tages
 const userTage = "User";
 const categoryTage = "Category"
 const orderTage = "Order"
 const productTage = "Product"
 const productReviewTage = "ProductReview"
-
 
 export {
   BASE_URL, DASHBOARD_URL, USERS_URL, productReviewTage, PAYMENT_URL,

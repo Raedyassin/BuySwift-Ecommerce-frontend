@@ -19,7 +19,7 @@ export default function Home() {
   const searchbarPosition = useSelector((state) => state.searchbarPosition);
   const showSearchResult = useSelector((state) => state.showSearchReasult);
   useEffect(() => {
-    window.document.title = "Cloud Dream store";
+    window.document.title = "Dream Market";
     window.scrollTo(0, 0);
   }, []);
 

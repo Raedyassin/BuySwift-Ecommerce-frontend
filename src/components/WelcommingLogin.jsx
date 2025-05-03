@@ -10,13 +10,13 @@ export default function WelcommingLogin() {
       {/* Animated Wave */}
       <div className="flex items-center font-bold text-5xl text-indigo-500 gap-4 mb-6">
         <PiRainbowCloudFill size={100} />
-        Cloud Dream Store
+        Dream Market
       </div>
       <p className="text-xl text-gray-700 max-w-md  ">
         Dive into{" "}
-        <span className="font-semibold text-indigo-500">Cloud Dream Store</span>
-        , where your dreams find a home. Discover unique treasures and start
-        your adventure today!
+        <span className="font-semibold text-indigo-500">Dream Market</span>,
+        where your dreams find a home. Discover unique treasures and start your
+        adventure today!
       </p>
       <button
         className="mt-8 cursor-pointer px-6 py-2 

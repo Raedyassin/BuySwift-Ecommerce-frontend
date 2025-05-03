@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function HomeWelcome() {
   const navigate = useNavigate();
-  const ecommerceNameWords = "Welcome to\nCloud Dream\n Store"
+  const ecommerceNameWords = "Welcome to\nDream Market"
     .split("\n")
     .map((line) => line.trim().split(" "));
   const ecommerceDescriptionWords =
