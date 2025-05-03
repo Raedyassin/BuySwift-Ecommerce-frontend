@@ -4,16 +4,16 @@ import {
   useGetAllCategoryQuery,
   useDeleteCategoryMutation,
 } from "../../redux/apis/categoryApiSlice";
-import { useEffect, useState } from "react";
+import { useEffect, useState, lazy, Suspense } from "react";
 import { toast } from "react-toastify";
 import CategoryForm from "../../components/CategoryForm";
-import Modale from "../../components/Modale";
 import AdminMenu from "./AdminMenu";
 import PageLoader from "../../components/PageLoader";
 import Message from "../../components/Message";
 import Loader from "../../components/Loader";
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import PageHeader from "../../components/PageHeader";
+const Modale = lazy(() => import("../../components/Modale"));
 
 export default function CategoryManagement() {
   const {
@@ -180,24 +180,32 @@ export default function CategoryManagement() {
           </motion.div>
 
           {/* Modal for Update/Delete */}
-          <Modale isOpen={modalVisible} isClose={() => setModalVisible(false)}>
-            <div className="p-6 bg-white rounded-xl ">
-              <div className=" px-4 py-3 rounded-t-xl -mx-6 -mt-6 mb-4">
-                <h2 className="text-lg font-medium  ">Edit Category</h2>
-              </div>
-              <CategoryForm
-                id="private"
-                value={updatingName}
-                setValue={setUpdatingName}
-                handleDelete={deleteCategoryHandler}
-                handleSubmit={updateCategoryHandler}
-                isLoadingDelete={isDeletingLoading}
-                isLoadingSubmit={isUpdatingLoading}
-                button="Update"
-                className="space-y-4"
-              />
-            </div>
-          </Modale>
+          <Suspense fallback={<Loader />}>
+            <AnimatePresence>
+              {modalVisible && (
+                <Modale
+                  isClose={() => setModalVisible(false)}
+                >
+                  <div className="p-6 bg-white rounded-xl ">
+                    <div className=" px-4 py-3 rounded-t-xl -mx-6 -mt-6 mb-4">
+                      <h2 className="text-lg font-medium  ">Edit Category</h2>
+                    </div>
+                    <CategoryForm
+                      id="private"
+                      value={updatingName}
+                      setValue={setUpdatingName}
+                      handleDelete={deleteCategoryHandler}
+                      handleSubmit={updateCategoryHandler}
+                      isLoadingDelete={isDeletingLoading}
+                      isLoadingSubmit={isUpdatingLoading}
+                      button="Update"
+                      className="space-y-4"
+                    />
+                  </div>
+                </Modale>
+              )}
+            </AnimatePresence>
+          </Suspense>
         </div>
       </div>
     </div>
