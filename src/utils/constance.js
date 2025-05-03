@@ -1,7 +1,7 @@
 // in development
-// const prefixImageUrl = "/uploads/"
+const prefixImageUrl = "/uploads/"
 
 // in production
-const prefixImageUrl = "https://cloud-dream-ecommerce-backend-production.up.railway.app/uploads/"
+// const prefixImageUrl = "https://cloud-dream-ecommerce-backend-production.up.railway.app/uploads/"
 
 export { prefixImageUrl }
