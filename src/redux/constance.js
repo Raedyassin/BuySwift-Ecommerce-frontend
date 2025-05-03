@@ -1,7 +1,7 @@
 // url params
 // this is for  production on delopment make it epmty because i use proxy
-// const BASE_URL = "https://cloud-dream-ecommerce-backend-production.up.railway.app";
-const BASE_URL = "";
+const BASE_URL = "https://cloud-dream-ecommerce-backend-production.up.railway.app";
+// const BASE_URL = "";
 const USERS_URL = "/api/users";
 const CATEGORY_URL = "/api/category";
 const PRODUCT_URL = "/api/products";
