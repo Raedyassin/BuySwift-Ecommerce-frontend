@@ -11,7 +11,10 @@ import AdminRoutes from "./pages/Admin/AdminRoutes";
 import ErrorBoundary from "./components/ErrorBoundary";
 import PageLoader from "./components/PageLoader";
 
-const Home = lazy(() => import("./pages/Home"));
+// id don't make home it's for lazy loading becasue it's the first page
+// and i don't wanna show loader on the first page
+import Home from "./pages/Home";
+
 const Login = lazy(() => import("./pages/Auth/Login"));
 const Register = lazy(() => import("./pages/Auth/Register"));
 const Profile = lazy(() => import("./pages/user/Profile"));
@@ -40,7 +43,7 @@ export default function App() {
         <PayPalWraper>
           <BrowserRouter>
             <Suspense
-              fallback={<PageLoader height="h-[70vh]" width="w-full" />}
+              fallback={<PageLoader height="h-screen" width="w-full" />}
             >
               <Routes>
                 <Route path="/" element={<Layout />}>
