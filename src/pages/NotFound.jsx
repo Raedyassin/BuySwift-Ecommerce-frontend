@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
 
 export default function NotFound() {
-  const logo = "Dream Market".split("");
+  const logo = "Dream Store".split("");
   const text = "404 Page Not Found".split("");
-  const subText = "Oops! The page you're looking for doesn't exist in Cloud Dream Store.".split("");
+  const subText = "Oops! The page you're looking for doesn't exist in Dream Store.".split("");
 
   // Animation variants for letter-by-letter effect
   const letterVariants = {

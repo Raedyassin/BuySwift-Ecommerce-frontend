@@ -61,7 +61,7 @@ export default function Searchbar({
       >
         <PiRainbowCloudFill className="text-3xl sm:text-4xl md:text-5xl font-bold group-hover:text-indigo-700" />
         <span className="text-xl sm:text-2xl font-bold italic group-hover:text-indigo-700">
-          Dream Market
+          Dream Store
         </span>
       </div>
 

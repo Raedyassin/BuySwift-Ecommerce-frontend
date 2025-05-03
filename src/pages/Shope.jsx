@@ -54,7 +54,8 @@ export default function Shope() {
   }, [searchParams]);
 
   useEffect(() => {
-    window.document.title = "🛒 Shop";
+    // window.document.title = "🛒 Shop";
+    window.document.title = "Shop";
     window.scrollTo(0, 0);
   }, []);
 

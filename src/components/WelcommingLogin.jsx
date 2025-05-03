@@ -1,4 +1,5 @@
 import { PiRainbowCloudFill } from "react-icons/pi";
+import { Link } from "react-router-dom";
 
 export default function WelcommingLogin() {
   return (
@@ -10,21 +11,22 @@ export default function WelcommingLogin() {
       {/* Animated Wave */}
       <div className="flex items-center font-bold text-5xl text-indigo-500 gap-4 mb-6">
         <PiRainbowCloudFill size={100} />
-        Dream Market
+        Dream Store
       </div>
       <p className="text-xl text-gray-700 max-w-md  ">
         Dive into{" "}
-        <span className="font-semibold text-indigo-500">Dream Market</span>,
+        <span className="font-semibold text-indigo-500">Dream Store</span>,
         where your dreams find a home. Discover unique treasures and start your
         adventure today!
       </p>
-      <button
+      <Link
+        to={"/shop"}
         className="mt-8 cursor-pointer px-6 py-2 
         bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700
         text-white font-semibold rounded-lg  transition-colors duration-300"
       >
         Explore Now
-      </button>
+      </Link>
     </div>
   );
 }
