@@ -43,7 +43,7 @@ export default function App() {
         <PayPalWraper>
           <BrowserRouter>
             <Suspense
-              fallback={<PageLoader height="h-screen" width="w-full" />}
+              fallback={<PageLoader className={"bg-white/10"}  height="h-screen" width="w-full" />}
             >
               <Routes>
                 <Route path="/" element={<Layout />}>
