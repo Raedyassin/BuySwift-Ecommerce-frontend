@@ -8,6 +8,7 @@ export default function WelcommingLogin() {
     text-center bg-gradient-to-br from-gray-200 to-cream-100 relative
     overflow-hidden rounded-l-2xl"
     >
+
       {/* Animated Wave */}
       <div className="flex items-center font-bold text-5xl text-indigo-500 gap-4 mb-6">
         <PiRainbowCloudFill size={100} />

@@ -24,7 +24,7 @@ export default function HomeWelcome() {
     visible: (i) => ({
       opacity: 1,
       transition: {
-        delay: i * 0.3 ,
+        delay: i * 0.3,
         ease: "easeOut",
       },
     }),
@@ -36,8 +36,9 @@ export default function HomeWelcome() {
       text-gray-300 flex flex-col items-center 
         px-4  sm:px-6 md:px-10 lg:pt-15 lg:px-30"
     >
-
-       {/* Top */}
+      <div className="relative">
+      </div>
+      {/* Top */}
       <div className="flex flex-col lg:flex-row items-center justify-between md:justify-around w-full">
         <div className="w-full lg:w-2/4 text-center lg:text-left">
           {ecommerceNameWords.map((line, lineIndex) => (
