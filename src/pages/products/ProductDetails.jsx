@@ -132,7 +132,7 @@ export default function ProductDetails() {
           }
         )
       );
-      toast.success("Rating submitted successfully");
+      // toast.success("Rating submitted successfully");
     } catch (error) {
       if (error.status < 500) {
         toast.error(error?.data?.message || "Please try again later.");
@@ -160,7 +160,7 @@ export default function ProductDetails() {
           }
         )
       );
-      toast.success("Review submitted successfully");
+      // toast.success("Review submitted successfully");
     } catch (error) {
       if (error.status < 500) {
         toast.error(error?.data?.message || "Please try again later.");
@@ -183,7 +183,7 @@ export default function ProductDetails() {
           quantity: quantityBuyed,
         })
       );
-      toast.success("Product added to cart");
+      // toast.success("Product added to cart");
     } else {
       toast.error("Please login first");
       navigate(`/login?redirect=/product/${product?.data?.product?._id}`);

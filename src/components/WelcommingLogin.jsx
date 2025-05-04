@@ -11,12 +11,12 @@ export default function WelcommingLogin() {
       {/* Animated Wave */}
       <div className="flex items-center font-bold text-5xl text-indigo-500 gap-4 mb-6">
         <PiRainbowCloudFill size={100} />
-        Dream Store
+        BuySwift
       </div>
       <p className="text-xl text-gray-700 max-w-md  ">
         Dive into{" "}
-        <span className="font-semibold text-indigo-500">Dream Store</span>,
-        where your dreams find a home. Discover unique treasures and start your
+        <span className="font-semibold text-indigo-500">BuySwift</span>, where
+        your dreams find a home. Discover unique treasures and start your
         adventure today!
       </p>
       <Link

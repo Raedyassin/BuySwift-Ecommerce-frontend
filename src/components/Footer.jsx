@@ -36,7 +36,7 @@ export default function Footer() {
             >
               <PiRainbowCloudFill className="text-2xl sm:text-3xl lg:text-4xl text-indigo-500 group-hover:text-indigo-700 transition-all duration-300" />
               <span className="text-lg sm:text-xl lg:text-2xl  font-semibold italic text-indigo-500 group-hover:text-indigo-700 transition-all duration-300">
-                Dream Store
+                BuySwift
               </span>
             </div>
             <p className="text-sm sm:text-base text-gray-200 mb-4">
@@ -44,7 +44,7 @@ export default function Footer() {
               style, and exclusive deals.
             </p>
             <p className="text-xs sm:text-sm text-gray-400">
-              © {new Date().getFullYear()} Dream Store. All rights reserved.
+              © {new Date().getFullYear()} BuySwift. All rights reserved.
             </p>
           </div>
 

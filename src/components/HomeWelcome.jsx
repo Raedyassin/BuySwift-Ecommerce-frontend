@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function HomeWelcome() {
   const navigate = useNavigate();
-  const ecommerceNameWords = "Welcome to\nDream Store"
+  const ecommerceNameWords = "Welcome to\nBuy Swift"
     .split("\n")
     .map((line) => line.trim().split(" "));
   const ecommerceDescriptionWords =
@@ -36,7 +36,8 @@ export default function HomeWelcome() {
       text-gray-300 flex flex-col items-center 
         px-4  sm:px-6 md:px-10 lg:pt-15 lg:px-30"
     >
-      {/* Top */}
+
+       {/* Top */}
       <div className="flex flex-col lg:flex-row items-center justify-between md:justify-around w-full">
         <div className="w-full lg:w-2/4 text-center lg:text-left">
           {ecommerceNameWords.map((line, lineIndex) => (
