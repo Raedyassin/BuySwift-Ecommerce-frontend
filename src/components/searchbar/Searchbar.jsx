@@ -173,7 +173,7 @@ export default function Searchbar({
               }}
               className="px-2 py-1 sm:px-3 font-semibold sm:py-1 text-sm 
               sm:text-base cursor-pointer   text-gray-700 rounded-md border 
-              hover:bg-gray-50 border-gray-200 "
+              hover:bg-gray-50 border-gray-200 bg-white "
             >
               Login
             </button>
@@ -184,7 +184,7 @@ export default function Searchbar({
               }}
               className="px-2 py-1 sm:px-3 sm:py-1 font-semibold text-sm 
               sm:text-base cursor-pointer   text-gray-700 rounded-md border 
-              hover:bg-gray-50 border-gray-200"
+              hover:bg-gray-50 border-gray-200 bg-white "
             >
               Register
             </button>
