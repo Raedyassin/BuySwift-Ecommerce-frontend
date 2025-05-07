@@ -51,7 +51,7 @@ export default function Searchbar({
       // transition-all duration-300
       className={`flex items-center flex-wrap w-full justify-between gap-2 
         px-4 py-2 sm:px-6  ${
-          homeSearchbarEffect === "dark" ? "bg-gray-900" : ""
+          homeSearchbarEffect === "dark" ? "bg-gray-900" : " "
         } `}
     >
       {/* Left side (Logo) */}

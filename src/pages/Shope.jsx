@@ -163,7 +163,7 @@ export default function Shope() {
         <div
           className="fixed p-2 z-50 rounded-full shadow-lg bg-gray-50 border 
         border-gray-100 flex items-center justify-center top-25 right-4 md:hidden 
-        cursor-pointer hover:bg-gray-100 transition-all duration-300 group"
+          cursor-pointer hover:bg-gray-100 transition-all duration-300 group"
           onClick={() => {
             if (!showFilter) {
               window.scrollTo({ top: 0, behavior: "smooth" });
@@ -184,17 +184,19 @@ export default function Shope() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             exit={{ opacity: 0 }}
-            className={`w-full my-5  sm:pt-5 lg:pt-0 lg:ml-5 md:w-64 flex-shrink-0 ${
+            className={`w-full border-r border-gray-50 sm:pt-5 lg:pt-0 lg:ml-5 md:w-64 flex-shrink-0 ${
               showFilter ? "block" : "hidden"
             } md:block `}
           >
             {/* <div className="relative"> */}
-              <div className=" sticky  top-0 ">
-              <div className="bg-gray-900 h-screen rounded  overflow-hidden 
+            <div className=" sticky  top-0 ">
+              <div
+                className="  h-screen rounded  overflow-hidden 
                 overflow-x-hidden [direction:rtl] overflow-y-scroll [&>*]:[direction:ltr]
-                [scrollbar-width:thin] [scrollbar-color:#fff_#101828]   shadow-lg p-4">
-                <div className="bg-gray-900  rounded-xl shadow-lg p-4 px-0">
-                  <h2 className="text-lg font-semibold text-center text-gray-100 py-2 bg-gray-800 rounded-full mb-4">
+                [scrollbar-width:thin]   [scrollbar-color:#1e293916_#fff]   p-4 pl-0"
+              >
+                <div className="    rounded-xl    px-0">
+                  <h2 className="text-lg font-semibold text-center text-black py-2 bg-gray-50/80 rounded-full mb-4">
                     Filter by Category
                   </h2>
                   <div className="space-y-3 px-4">
@@ -218,7 +220,7 @@ export default function Shope() {
                           />
                           <label
                             htmlFor={category._id}
-                            className="text-gray-200 ml-2 text-sm"
+                            className="text-black ml-2 text-sm"
                           >
                             {category.name}
                           </label>
@@ -241,8 +243,8 @@ export default function Shope() {
                   {uniqueBrands.length !== 0 && (
                     <>
                       <h2
-                        className="text-lg font-semibold text-center text-gray-100 
-                  py-2 bg-gray-800 rounded-full mt-6 mb-4"
+                        className="text-lg font-semibold text-center text-black 
+                  py-2 bg-gray-50/80 rounded-full mt-6 mb-4"
                       >
                         Filter by Brands
                       </h2>
@@ -265,7 +267,7 @@ export default function Shope() {
                               />
                               <label
                                 htmlFor={index}
-                                className="text-gray-200 ml-2 text-sm"
+                                className="text-black ml-2 text-sm"
                               >
                                 {brand}
                               </label>
@@ -288,8 +290,8 @@ export default function Shope() {
                     </>
                   )}
                   <h2
-                    className="text-lg font-semibold text-center text-gray-100 py-2 
-            bg-gray-800 rounded-full mt-6 mb-4"
+                    className="text-lg font-semibold text-center text-black py-2 
+            bg-gray-50/80 rounded-full mt-6 mb-4"
                   >
                     Filter by Price
                   </h2>
@@ -297,31 +299,28 @@ export default function Shope() {
                     <div className="flex items-center gap-2">
                       <label
                         htmlFor="start"
-                        className="text-gray-200 text-sm w-12"
+                        className="text-black text-sm w-12"
                       >
                         Start:
                       </label>
                       <input
                         type="number"
                         id="start"
-                        className="w-full p-2 bg-gray-800 text-white border 
-                  border-gray-700 rounded-lg focus:outline-none focus:ring-2 
+                        className="w-full p-2     border 
+                  border-gray-200 rounded-lg focus:outline-none focus:ring-2 
                   focus:ring-indigo-500 transition-all duration-200"
                         onChange={(e) => setStartPrice(e.target.value)}
                       />
                     </div>
                     <div className="flex items-center gap-2">
-                      <label
-                        htmlFor="end"
-                        className="text-gray-200 text-sm w-12"
-                      >
+                      <label htmlFor="end" className="text-black text-sm w-12">
                         End:
                       </label>
                       <input
                         type="number"
                         id="end"
-                        className="w-full p-2 bg-gray-800 text-white border 
-                  border-gray-700 rounded-lg focus:outline-none focus:ring-2 
+                        className="w-full p-2     border 
+                  border-gray-200 rounded-lg focus:outline-none focus:ring-2 
                   focus:ring-indigo-500 transition-all duration-200"
                         onChange={(e) => setEndPrice(e.target.value)}
                       />
