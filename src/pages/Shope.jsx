@@ -8,7 +8,7 @@ import { FiFilter } from "react-icons/fi";
 import { motion } from "motion/react";
 import { useLocation, useNavigate } from "react-router-dom";
 import PageHeader from "../components/PageHeader";
- import ProductLoader from "./products/ProductLoader";
+import ProductLoader from "./products/ProductLoader";
 
 export default function Shope() {
   const location = useLocation();
@@ -28,6 +28,7 @@ export default function Shope() {
 
   const [showMoreBrand, setShowMoreBrand] = useState(false);
   const [showMoreCategory, setShowMoreCategory] = useState(false);
+  
 
   const { data: categoriesData, isLoading: isLoadingCategory } =
     useGetAllCategoryQuery();
@@ -183,150 +184,165 @@ export default function Shope() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             exit={{ opacity: 0 }}
-            className={`w-full my-5 lg:ml-5 md:w-64 flex-shrink-0 ${
+            className={`w-full my-5  sm:pt-5 lg:pt-0 lg:ml-5 md:w-64 flex-shrink-0 ${
               showFilter ? "block" : "hidden"
-            } md:block`}
+            } md:block `}
           >
-            <div className="bg-gray-900 rounded-xl shadow-lg p-4">
-              <h2 className="text-lg font-semibold text-center text-gray-100 py-2 bg-gray-800 rounded-full mb-4">
-                Filter by Category
-              </h2>
-              <div className="space-y-3 px-4">
-                {categoriesData?.data?.categories
-                  ?.slice(
-                    0,
-                    !showMoreCategory
-                      ? 5
-                      : categoriesData?.data?.categories?.length
-                  )
-                  ?.map((category) => (
-                    <div key={category._id} className="flex items-center">
-                      <input
-                        type="checkbox"
-                        id={category._id}
-                        checked={selectedCategory.includes(category._id)}
-                        onChange={() => selectedCategoryHandler(category._id)}
-                        className="w-4 h-4 text-indigo-500 focus:ring-indigo-500 border-gray-600 rounded cursor-pointer"
-                      />
-                      <label
-                        htmlFor={category._id}
-                        className="text-gray-200 ml-2 text-sm"
-                      >
-                        {category.name}
-                      </label>
-                    </div>
-                  ))}
-              </div>
-              {categoriesData?.data?.categories?.length > 5 && (
-                <div className="flex items-center justify-center">
-                  <button
-                    onClick={() => setShowMoreCategory(!showMoreCategory)}
-                    className=" text-sm mt-4 text-white
-                      p-2 rounded-full w-30 italic font-semibold cursor-pointer 
-                      bg-indigo-600 hover:bg-indigo-700
-                    "
-                  >
-                    {showMoreCategory ? "Show Less" : "Show More"}
-                  </button>
-                </div>
-              )}{" "}
-              {uniqueBrands.length !== 0 && (
-                <>
-                  <h2
-                    className="text-lg font-semibold text-center text-gray-100 
-                  py-2 bg-gray-800 rounded-full mt-6 mb-4"
-                  >
-                    Filter by Brands
+            {/* <div className="relative"> */}
+              <div className=" sticky  top-0 ">
+              <div className="bg-gray-900 h-screen rounded  overflow-hidden 
+                overflow-x-hidden [direction:rtl] overflow-y-scroll [&>*]:[direction:ltr]
+                [scrollbar-width:thin] [scrollbar-color:#fff_#101828]   shadow-lg p-4">
+                <div className="bg-gray-900  rounded-xl shadow-lg p-4 px-0">
+                  <h2 className="text-lg font-semibold text-center text-gray-100 py-2 bg-gray-800 rounded-full mb-4">
+                    Filter by Category
                   </h2>
-                  
                   <div className="space-y-3 px-4">
-                    {uniqueBrands
-                      ?.slice(0, showMoreBrand ? uniqueBrands.length : 5)
-                      ?.map((brand, index) => (
-                        <div key={index} className="flex items-center">
+                    {categoriesData?.data?.categories
+                      ?.slice(
+                        0,
+                        !showMoreCategory
+                          ? 5
+                          : categoriesData?.data?.categories?.length
+                      )
+                      ?.map((category) => (
+                        <div key={category._id} className="flex items-center">
                           <input
-                            type="radio"
-                            id={index}
-                            value={index}
-                            checked={newInputRadio === index + 1}
-                            onChange={(e) =>
-                              selectedBrandHandler(+e.target.value)
+                            type="checkbox"
+                            id={category._id}
+                            checked={selectedCategory.includes(category._id)}
+                            onChange={() =>
+                              selectedCategoryHandler(category._id)
                             }
-                            className="w-4 h-4 text-indigo-500 focus:ring-indigo-500 
-                          border-gray-600 rounded cursor-pointer"
+                            className="w-4 h-4 text-indigo-500 focus:ring-indigo-500 border-gray-600 rounded cursor-pointer"
                           />
                           <label
-                            htmlFor={index}
+                            htmlFor={category._id}
                             className="text-gray-200 ml-2 text-sm"
                           >
-                            {brand}
+                            {category.name}
                           </label>
                         </div>
                       ))}
                   </div>
-                  {uniqueBrands.length > 5 && (
+                  {categoriesData?.data?.categories?.length > 5 && (
                     <div className="flex items-center justify-center">
                       <button
-                        onClick={() => setShowMoreBrand(!showMoreBrand)}
+                        onClick={() => setShowMoreCategory(!showMoreCategory)}
                         className=" text-sm mt-4 text-white
+                      p-2 rounded-full w-30 italic font-semibold cursor-pointer 
+                      bg-indigo-600 hover:bg-indigo-700
+                    "
+                      >
+                        {showMoreCategory ? "Show Less" : "Show More"}
+                      </button>
+                    </div>
+                  )}{" "}
+                  {uniqueBrands.length !== 0 && (
+                    <>
+                      <h2
+                        className="text-lg font-semibold text-center text-gray-100 
+                  py-2 bg-gray-800 rounded-full mt-6 mb-4"
+                      >
+                        Filter by Brands
+                      </h2>
+
+                      <div className="space-y-3 px-4">
+                        {uniqueBrands
+                          ?.slice(0, showMoreBrand ? uniqueBrands.length : 5)
+                          ?.map((brand, index) => (
+                            <div key={index} className="flex items-center">
+                              <input
+                                type="radio"
+                                id={index}
+                                value={index}
+                                checked={newInputRadio === index + 1}
+                                onChange={(e) =>
+                                  selectedBrandHandler(+e.target.value)
+                                }
+                                className="w-4 h-4 text-indigo-500 focus:ring-indigo-500 
+                          border-gray-600 rounded cursor-pointer"
+                              />
+                              <label
+                                htmlFor={index}
+                                className="text-gray-200 ml-2 text-sm"
+                              >
+                                {brand}
+                              </label>
+                            </div>
+                          ))}
+                      </div>
+                      {uniqueBrands.length > 5 && (
+                        <div className="flex items-center justify-center">
+                          <button
+                            onClick={() => setShowMoreBrand(!showMoreBrand)}
+                            className=" text-sm mt-4 text-white
                     p-2 rounded-full w-30 italic font-semibold cursor-pointer 
                     bg-indigo-600 hover:bg-indigo-700
                   "
-                      >
-                        {showMoreBrand ? "Show Less" : "Show More"}
-                      </button>
-                    </div>
+                          >
+                            {showMoreBrand ? "Show Less" : "Show More"}
+                          </button>
+                        </div>
+                      )}
+                    </>
                   )}
-                </>
-              )}
-              <h2
-                className="text-lg font-semibold text-center text-gray-100 py-2 
+                  <h2
+                    className="text-lg font-semibold text-center text-gray-100 py-2 
             bg-gray-800 rounded-full mt-6 mb-4"
-              >
-                Filter by Price
-              </h2>
-              <div className="space-y-4 px-4">
-                <div className="flex items-center gap-2">
-                  <label htmlFor="start" className="text-gray-200 text-sm w-12">
-                    Start:
-                  </label>
-                  <input
-                    type="number"
-                    id="start"
-                    className="w-full p-2 bg-gray-800 text-white border 
+                  >
+                    Filter by Price
+                  </h2>
+                  <div className="space-y-4 px-4">
+                    <div className="flex items-center gap-2">
+                      <label
+                        htmlFor="start"
+                        className="text-gray-200 text-sm w-12"
+                      >
+                        Start:
+                      </label>
+                      <input
+                        type="number"
+                        id="start"
+                        className="w-full p-2 bg-gray-800 text-white border 
                   border-gray-700 rounded-lg focus:outline-none focus:ring-2 
                   focus:ring-indigo-500 transition-all duration-200"
-                    onChange={(e) => setStartPrice(e.target.value)}
-                  />
-                </div>
-                <div className="flex items-center gap-2">
-                  <label htmlFor="end" className="text-gray-200 text-sm w-12">
-                    End:
-                  </label>
-                  <input
-                    type="number"
-                    id="end"
-                    className="w-full p-2 bg-gray-800 text-white border 
+                        onChange={(e) => setStartPrice(e.target.value)}
+                      />
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <label
+                        htmlFor="end"
+                        className="text-gray-200 text-sm w-12"
+                      >
+                        End:
+                      </label>
+                      <input
+                        type="number"
+                        id="end"
+                        className="w-full p-2 bg-gray-800 text-white border 
                   border-gray-700 rounded-lg focus:outline-none focus:ring-2 
                   focus:ring-indigo-500 transition-all duration-200"
-                    onChange={(e) => setEndPrice(e.target.value)}
-                  />
-                </div>
-                <button
-                  className="w-full bg-indigo-600 cursor-pointer text-white py-2 rounded-lg hover:bg-indigo-700 transition-all duration-300 shadow-md"
-                  onClick={priceFilterHandler}
-                >
-                  Apply
-                </button>
-              </div>
-              <div className="mt-6 px-4">
-                <button
-                  className="w-full bg-gray-700 cursor-pointer text-white py-2 
+                        onChange={(e) => setEndPrice(e.target.value)}
+                      />
+                    </div>
+                    <button
+                      className="w-full bg-indigo-600 cursor-pointer text-white py-2 rounded-lg hover:bg-indigo-700 transition-all duration-300 shadow-md"
+                      onClick={priceFilterHandler}
+                    >
+                      Apply
+                    </button>
+                  </div>
+                  <div className="mt-6 px-4">
+                    <button
+                      className="w-full bg-gray-700 cursor-pointer text-white py-2 
                 rounded-lg hover:bg-gray-800 transition-all duration-300 shadow-md"
-                  onClick={(e) => resetFilter(e)}
-                >
-                  Reset
-                </button>
+                      onClick={(e) => resetFilter(e)}
+                    >
+                      Reset
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
           </motion.div>
@@ -422,8 +438,7 @@ export default function Shope() {
                   <div key={index}>
                     <ProductLoader />
                   </div>
-                ))
-              }
+                ))}
             </div>
           </motion.div>
         </div>
