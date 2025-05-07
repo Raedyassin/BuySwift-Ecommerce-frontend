@@ -189,11 +189,12 @@ export default function Shope() {
             } md:block `}
           >
             {/* <div className="relative"> */}
-            <div className=" sticky  top-0 ">
+            <div
+              className=" sticky  top-0 ">
               <div
                 className="  h-screen rounded  overflow-hidden 
                 overflow-x-hidden [direction:rtl] overflow-y-scroll [&>*]:[direction:ltr]
-                [scrollbar-width:thin]   [scrollbar-color:#1e293916_#fff]   p-2"
+                [scrollbar-width:thin]   [scrollbar-color:#1e293916_#fff]   p-2 "
               >
                 <div className="    rounded-xl    px-0">
                   <h2 className="text-lg font-semibold text-center text-black py-2 bg-gray-50/80 rounded-full mb-4">

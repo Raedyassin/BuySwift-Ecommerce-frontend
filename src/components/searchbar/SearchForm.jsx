@@ -35,9 +35,9 @@ export default function SearchForm({
     setSearchName(searchValue);
   };
   const goToResult = () => {
-    navigate(`/shop?search=${searchName}`);
-    dispatch(hiddenSearchResult());
     dispatch(changeToRelative());
+    dispatch(hiddenSearchResult());
+    navigate(`/shop?search=${searchName}`);
   };
   const navigate = useNavigate();
   return (
