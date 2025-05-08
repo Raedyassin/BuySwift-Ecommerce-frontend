@@ -2,6 +2,8 @@ import { useState } from "react";
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { PiRainbowCloudFill } from "react-icons/pi";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import Loader from "./Loader";
+import {useNewsLetterSubscribeMutation} from "../redux/apis/newsletterApiSlice"
 import { motion } from "motion/react";
 import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
@@ -10,12 +12,6 @@ export default function Footer() {
   const navigate = useNavigate();
   const userInfo = useSelector((state) => state.auth.userInfo);
   const location = useLocation();
-  const handleNewsletterSubmit = (e) => {
-    e.preventDefault();
-    // Placeholder for newsletter subscription logic
-    toast.success(`Subscribed with ${email}`);
-    setEmail("");
-  };
   const goToHome = () => {
     console.log(location.pathname);
     if (location.pathname === "/") {
@@ -24,6 +20,21 @@ export default function Footer() {
     }
     navigate("/");
   };
+
+  const [subscribeNewsLetter, { isLoading }] = useNewsLetterSubscribeMutation();
+  const handleNewsletterSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await subscribeNewsLetter(email).unwrap();
+      toast.success(`Subscribed with ${email}`);
+      setEmail("");
+    } catch (err) {
+      if(err.status < 500){
+        return toast.error(err.data.message);
+      }
+      toast.error("Something went wrong. Please try again later.");
+    }
+  }
 
   return (
     <motion.footer
@@ -79,12 +90,19 @@ export default function Footer() {
               Quick Links
             </h3>
             <ul className="space-y-2">
+              <li>
+                <div
+                  onClick={goToHome}
+                  className="text-sm sm:text-base text-gray-600 
+                    hover:text-indigo-500 hover:underline transition-all 
+                    duration-300 hover:scale-105 inline-block"
+                >
+                  Home
+                </div>
+              </li>
               {[
-                { name: "Home", to: "/" },
                 { name: "Shop", to: "/shop" },
-                // { name: "Orders", to: "/orderslist" },
                 { name: "Favorite", to: "/favorite" },
-                // { name: "Cart", to: "/cart  " },
               ].map((link) => (
                 <li key={link.name}>
                   <Link
@@ -151,9 +169,6 @@ export default function Footer() {
               >
                 Connect With Us
               </h3>
-              <p className="text-sm sm:text-base text-gray-600 mb-2">
-                Will be available soon
-              </p>
               <p className="text-sm sm:text-base text-gray-500 mb-4">
                 Join our newsletter for exclusive offers and updates.
               </p>
@@ -175,7 +190,16 @@ export default function Footer() {
                   text-white font-semibold py-3 rounded-lg hover:bg-indigo-700 
                   hover:scale-105 transition-all duration-300 shadow-md"
                 >
-                  Subscribe
+                  {
+                    isLoading ? (
+                      <div className="flex items-center justify-center">
+                        <span>Subscribing</span>
+                        <Loader loaderColor='border-white' />
+                      </div>
+                    ) : (
+                      "Subscribe"
+                    )
+                  }
                 </button>
               </form>
             </div>

@@ -108,7 +108,7 @@ export default function ProductDetails() {
     // console.log(userInfo?._id);
     if (reviews?.data?.reviews[0]?.user._id === userInfo?._id) {
       setHoveredStar(reviews?.data?.reviews[0]?.rating);
-    }else{
+    } else {
       setHoveredStar(-1);
     }
   }, [userInfo, id, reviews]);
@@ -175,21 +175,14 @@ export default function ProductDetails() {
   }, []);
 
   const addToCartHandler = () => {
-    if (userInfo) {
-      dispatch(
-        addToCart({
-          ...product?.data?.product,
-          totalQuantity: product?.data?.product?.quantity,
-          quantity: quantityBuyed,
-        })
-      );
-      // toast.success("Product added to cart");
-    } else {
-      toast.error("Please login first");
-      navigate(`/login?redirect=/product/${product?.data?.product?._id}`);
-    }
+    dispatch(
+      addToCart({
+        ...product?.data?.product,
+        totalQuantity: product?.data?.product?.quantity,
+        quantity: quantityBuyed,
+      })
+    );
   };
-
   if (isLoading || isFetching) {
     return <PageLoader />;
   }

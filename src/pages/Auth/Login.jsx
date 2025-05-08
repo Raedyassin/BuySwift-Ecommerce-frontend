@@ -35,9 +35,9 @@ export default function Login() {
       const res = await loginFech({ password, email }).unwrap();      
       dispatch(setCredientials(res.data.user));
       toast.success(`${res.data.user.username} signed in`);
-      navigate(redirect);
+      navigate(redirect || "/");
     } catch (err) {
-      if (err.status === 401) {
+      if (err.status < 500) {
         toast.error(err.data.message);
       } else {
         toast.error("Something went wrong. Please try again later.");

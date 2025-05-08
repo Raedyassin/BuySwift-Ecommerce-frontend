@@ -13,6 +13,7 @@ export default function Profile() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setconfirmPassword] = useState("");
   const [email, setEmail] = useState("");
+  const [isSubscribedToNewsletter, setIsSubscribedToNewsletter] = useState("");
   const [username, setUsername] = useState("");
   const popuptRef = useRef();
 
@@ -26,7 +27,8 @@ export default function Profile() {
   useEffect(() => {
     setUsername(userInfo.username);
     setEmail(userInfo.email);
-  }, [userInfo.username, userInfo.email]);
+    setIsSubscribedToNewsletter(Boolean(userInfo.isSubscribedToNewsletter));
+  }, [userInfo.username, userInfo.email, userInfo.isSubscribedToNewsletter]);
 
   useEffect(() => {
     window.document.title = "Profile: " + userInfo.username;
@@ -35,22 +37,28 @@ export default function Profile() {
 
   const handleUpates = async (e) => {
     e.preventDefault();
-    if (userInfo?.username === username) {
-      toast.error("You are already use this Name");
+    const body = {};
+    if (userInfo?.username !== username) {
+      body.username = username;
+    }
+    if (userInfo?.email !== email) {
+      body.email = email;
+    }
+    if (
+      userInfo?.isSubscribedToNewsletter !== isSubscribedToNewsletter
+    ) {
+      body.isSubscribedToNewsletter = Boolean(isSubscribedToNewsletter);
+    } 
+    if (password || confirmPassword) {
+      if (password !== confirmPassword) {
+        toast.error("Password do not match");
+        return;
+      }
+      body.password = password;
+    } 
+    if(!body) {
       return;
     }
-    if (userInfo?.email === email) {
-      toast.error("You are already use this email");
-      return;
-    }
-    if (password !== confirmPassword) {
-      toast.error("Password do not match");
-      return;
-    }
-    const body = { username, password, email };
-    if (!username) delete body.username;
-    if (!password) delete body.password;
-    if (!email) delete body.email;
     try {
       const res = await updateProfile(body).unwrap();
       dispatch(setCredientials(res.data.user));
@@ -111,7 +119,12 @@ export default function Profile() {
               relative"
               >
                 <img
-                  src={prefixImageUrl+"user/"+ userInfo?.img?.split("/")?.pop() || prefixImageUrl+"user/userImge.png"}
+                  src={
+                    prefixImageUrl +
+                      "user/" +
+                      userInfo?.img?.split("/")?.pop() ||
+                    prefixImageUrl + "user/userImge.png"
+                  }
                   alt={userInfo?.username}
                   className="w-full h-full object-cover rounded-full"
                   onError={(e) => {
@@ -212,6 +225,23 @@ export default function Profile() {
                 onChange={(e) => setconfirmPassword(e.target.value)}
                 value={confirmPassword}
               />
+            </div>
+            <div className="mb-4 flex justify-between items-center">
+              <span className="block text-gray-700 text-sm sm:text-base font-medium italic mb-1">
+                Subscribe on newsletter
+              </span>
+              <label className="relative inline-flex items-center cursor-pointer">
+                <input
+                  type="checkbox"
+                  className="sr-only peer"
+                  checked={isSubscribedToNewsletter}
+                  onChange={() =>
+                    setIsSubscribedToNewsletter(!isSubscribedToNewsletter)
+                  }
+                />
+                <div className="w-11 h-6 bg-gray-300 peer-checked:bg-blue-600 rounded-full transition-all peer-focus:ring-2 ring-blue-300"></div>
+                <div className="absolute left-0.5 top-0.5 w-5 h-5 bg-white rounded-full shadow transform peer-checked:translate-x-full transition-all" />
+              </label>
             </div>
 
             <div className="w-full flex justify-center">
