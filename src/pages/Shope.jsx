@@ -25,6 +25,8 @@ export default function Shope() {
   const [newInputRadio, setNewInputRadio] = useState(0);
   const [selectedCategory, setSelectedCategory] = useState([]);
   const [price, setPrice] = useState("");
+  const refPriceStart = useRef(null);
+  const refPriceEnd = useRef(null);
 
   const [showMoreBrand, setShowMoreBrand] = useState(false);
   const [showMoreCategory, setShowMoreCategory] = useState(false);
@@ -112,6 +114,8 @@ export default function Shope() {
 
   const resetFilter = (e) => {
     e.preventDefault();
+    refPriceEnd.current.value = "";
+    refPriceStart.current.value = "";
     setPrice("");
     setSelectedCategory("");
     setNewInputRadio(0);
@@ -307,6 +311,7 @@ export default function Shope() {
                       <input
                         type="number"
                         id="start"
+                        ref = {refPriceStart}
                         className="w-full p-2     border 
                   border-gray-200 rounded-lg focus:outline-none focus:ring-2 
                   focus:ring-indigo-500 transition-all duration-200"
@@ -320,6 +325,7 @@ export default function Shope() {
                       <input
                         type="number"
                         id="end"
+                        ref = {refPriceEnd}
                         className="w-full p-2     border 
                   border-gray-200 rounded-lg focus:outline-none focus:ring-2 
                   focus:ring-indigo-500 transition-all duration-200"

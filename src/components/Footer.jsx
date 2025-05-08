@@ -95,7 +95,7 @@ export default function Footer() {
                   onClick={goToHome}
                   className="text-sm sm:text-base text-gray-600 
                     hover:text-indigo-500 hover:underline transition-all 
-                    duration-300 hover:scale-105 inline-block"
+                    duration-300 hover:scale-105 inline-block cursor-pointer"
                 >
                   Home
                 </div>
