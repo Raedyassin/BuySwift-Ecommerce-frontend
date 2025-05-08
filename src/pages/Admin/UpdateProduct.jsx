@@ -87,7 +87,7 @@ export default function UpdateProduct() {
 
   useEffect(() => {
     window.document.title = "Product: " + product?.data?.product?.name;
-    window.scrollTo(0, 0);a
+    window.scrollTo(0, 0);
   }, [product]);
 
   const handleDelete = (e) => {
