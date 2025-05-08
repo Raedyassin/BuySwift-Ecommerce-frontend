@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useCreateUserMutation } from "../../redux/apis/userApiSlice";
@@ -20,6 +20,9 @@ export default function Register() {
   const { search } = useLocation();
   const sp = new URLSearchParams(search);
   const redirect = sp.get("redirect") || "/";
+  useEffect(() => {
+    window.document.title = "BuySwift | Register";
+  }, []);
 
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -40,7 +43,7 @@ export default function Register() {
       const res = await createUserFech({ username, password, email }).unwrap();
       dispatch(setCredientials(res.data.user));
       toast.success(`${res.data.user.username} registered successfully`);
-      navigate('/');
+      navigate("/");
     } catch (err) {
       if (err.status === 409 || err.status === 400) {
         toast.error(err.data.message);

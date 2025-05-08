@@ -83,12 +83,11 @@ export default function UpdateProduct() {
   const uploadFileHandler = async (e) => {
     e.preventDefault();
     setNewImage(e.target.files[0]);
-    console.log(e.target.files[0]);
   };
 
   useEffect(() => {
-    window.document.title = "Update Product: " + product?.data?.product?.name;
-    window.scrollTo(0, 0);
+    window.document.title = "Product: " + product?.data?.product?.name;
+    window.scrollTo(0, 0);a
   }, [product]);
 
   const handleDelete = (e) => {

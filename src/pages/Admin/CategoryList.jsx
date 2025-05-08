@@ -33,7 +33,7 @@ export default function CategoryManagement() {
   const [deleteCategory, { isLoading: isDeletingLoading }] = useDeleteCategoryMutation();
 
     useEffect(() => {
-      window.document.title = "Category Table";
+      window.document.title = "Category Management";
       window.scrollTo(0, 0);
     }, []);
 

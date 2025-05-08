@@ -171,6 +171,7 @@ export default function ProductDetails() {
   };
   useEffect(() => {
     window.scrollTo(0, { behavior: "smooth" });
+    document.title = "Product: " + product?.data?.product?.name;
     setQuantityBuyed(1);
   }, []);
 

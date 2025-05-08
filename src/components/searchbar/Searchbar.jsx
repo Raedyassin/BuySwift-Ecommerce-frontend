@@ -111,7 +111,7 @@ export default function Searchbar({
             className="relative cursor-pointer hover:scale-110 transition-scale duration-300"
           >
             <img
-              onClick={() => setShowUserInfo(!showUserInfo)}
+              onClick={() => { navigate("/profile"); setShowUserInfo(false);}}
               onMouseEnter={() => setShowUserInfo(true)}
               onMouseLeave={() => setShowUserInfo(false)}
               // src={userInfo?.img}

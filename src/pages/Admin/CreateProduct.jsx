@@ -22,7 +22,7 @@ export default function CreateProduct() {
   const { data: categories } = useGetAllCategoryQuery();
 
   useEffect(() => {
-    window.document.title = "Create Product";
+    window.document.title = "Add Product";
     window.scrollTo(0, 0);
   }, []);
 

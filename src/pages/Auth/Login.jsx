@@ -1,4 +1,4 @@
-import {  useState } from "react";
+import {  useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useLoginMutation } from "../../redux/apis/userApiSlice";
@@ -19,6 +19,10 @@ export default function Login() {
   const sp = new URLSearchParams(search);
   const redirect = sp.get("redirect") || "/";
 
+
+  useEffect(() => {
+    window.document.title = "BuySwift | Login";
+  }, []);
 
   const handleLogin = async (e) => {
     e.preventDefault();
